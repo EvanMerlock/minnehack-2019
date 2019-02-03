@@ -1,7 +1,8 @@
 class Block:
 
-    def __init__(self, crop):
+    def __init__(self, crop, field):
         self.__crop = crop
+        self.__field = field
 
     def get_farm(self):
         return self.__field.get_farm()
@@ -9,8 +10,8 @@ class Block:
     def get_field(self):
         return self.__field
 
-    def get_blocks(self):
-        return self.__blocks
+    def get_crop(self):
+        return self.__crop
 
 
     def __init__(self, estimateYield, workHours):
