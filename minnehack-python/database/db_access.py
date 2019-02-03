@@ -126,12 +126,49 @@ class Database():
         cursor = self.__connection.cursor()
         cursor.execute("SELECT * FROM orange_produce.fields WHERE contained_in = %s", (farm_id))
         items = cursor.fetch_all()
+        items = list(map(self.convert_field, items))
         return items
 
     def get_blocks_from_field(self, field_id):
         cursor = self.__connection.cursor()
         cursor.execute("SELECT * FROM orange_produce.blocks WHERE contained_in = %s", (field_id))
         items = cursor.fetch_all()
+        items = list(map(self.convert_block, items))
+        return items
+
+    def get_all_farms(self):
+        cursor = self.__connection.cursor()
+        cursor.execute("SELECT * FROM orange_produce.farms")
+        items = cursor.fetch_all()
+        items = list(map(self.convert_farm, items))
+        return items
+
+    def get_all_fields(self):
+        cursor = self.__connection.cursor()
+        cursor.execute("SELECT * FROM orange_produce.fields")
+        items = cursor.fetch_all()
+        items = list(map(self.convert_field, items))
+        return items
+
+    def get_all_blocks(self):
+        cursor = self.__connection.cursor()
+        cursor.execute("SELECT * FROM orange_produce.blocks")
+        items = cursor.fetch_all()
+        items = list(map(self.convert_block, items))
+        return items
+
+    def get_all_crops(self):
+        cursor = self.__connection.cursor()
+        cursor.execute("SELECT * FROM orange_produce.crops")
+        items = cursor.fetch_all()
+        items = list(map(self.convert_crop, items))
+        return items
+
+    def get_all_crop_events(self):
+        cursor = self.__connection.cursor()
+        cursor.execute("SELECT * FROM orange_produce.crop_swap_event")
+        items = cursor.fetch_all()
+        items = list(map(self.convert_crop_event, items))
         return items
 
     def convert_farm(self, tuple_item):
