@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Add a Crop</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+</head>
+<body>
+<div class="row">
+<div class="col-md-1"><a href="/"> < Back</a></div>
+<div class="col-md-11">
+<h1>Add a new Crop Type</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-11">
+<form method="POST" action="addcropaction">
+<label name="cropnamelabel">Crop Name:</label>&nbsp
+<input type="text" name="cropname"></input>
+<br>
+<label name="cropvaluelabel">Crop Market Value (Per Ton, in $):</label>&nbsp
+<input type="number" name="cropvalue"></input>
+<br>
+<label name="cropyieldtimelabel">Crop Time to Yield (Days):</label>&nbsp
+<input type="number" name="cropyieldtime" min="0"></input>
+<br>
+<label name="cropcostblocklabel">Crop Cost Per Block (in $):</label>&nbsp
+<input type="number" name="cropcostblock"></input>
+<br>
+<label name="cropmanhourslabel">Crop Man Hours per Block:</label>&nbsp
+<input type="number" name="cropmanhours"></input>
+<br>
+<button type="submit" name="cropaddsubmit">Add This Crop</button>
+</form>
+</div>
+</div>
+</body>
+</html>
