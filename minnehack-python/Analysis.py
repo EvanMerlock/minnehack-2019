@@ -12,7 +12,7 @@ class Analysis:
     def est_cost(self):
         pass
 
-    def get_yield_per_acre(self, cropt_string):
+    def get_yield_per_acre(self, crop_string, string_of_file):
         #finds the yeld per acre of the crop in input, and returns it
 
     def get_cost_per_ton(self, crop_string):
