@@ -9,10 +9,10 @@ BEGIN
         SET farm_name = coalesce(mod_farm_name, farm_name),
             location = coalesce(mod_farm_location, location),
             created_by = coalesce(mod_created_by_id, created_by),
-        WHERE id = farm_id;
+    WHERE id = farm_id;
     UPDATE orange_produce.farm_audit
         SET modified_date = now(),
-        WHERE id = farm_id;
+    WHERE id = farm_id;
     RETURN true;
 END;
 $$ LANGUAGE plpgsql;
@@ -28,10 +28,10 @@ BEGIN
         SET field_name = coalesce(mod_field_name, field_name),
             contained_in = coalesce(mod_contained_in, contained_in),
             created_by = coalesce(mod_created_by_id, created_by),
-        WHERE id = field_id;
+    WHERE id = field_id;
     UPDATE orange_produce.fields_audit
         SET modified_date = now(),
-        WHERE id = field_id;
+    WHERE id = field_id;
     RETURN true;
 END;
 $$ LANGUAGE plpgsql;
@@ -49,10 +49,10 @@ BEGIN
             contained_in = coalesce(mod_contained_in, contained_in),
             created_by = coalesce(mod_created_by_id, created_by),
             crop = coalesce(mod_crop_id, crop)
-        WHERE id = block_id;
+    WHERE id = block_id;
     UPDATE orange_produce.blocks_audit
         SET modified_date = now(),
-        WHERE id = block_id;
+    WHERE id = block_id;
     RETURN true;
 END;
 $$ LANGUAGE plpgsql;
@@ -74,10 +74,10 @@ BEGIN
             yield_time      = coalesce(mod_yield_time, yield_time),
             cost_per        = coalesce(mod_cost_per, cost_per),
             created_by      = coalesce(mod_created_by, created_by)
-        WHERE id = crop_id;
+    WHERE id = crop_id;
     UPDATE orange_produce.crops_audit
         SET modified_date = now(),
-        WHERE id = crop_id;
+    WHERE id = crop_id;
     RETURN true;
 END;
 $$ LANGUAGE plpgsql;
@@ -95,10 +95,10 @@ BEGIN
             next_crop     = coalesce(mod_crop_swap_next, next_crop),
             created_by    = coalesce(mod_created_by, created_by),
             swap_date     = coalesce(mod_time_swap, swap_date)
-        WHERE id = crop_swap_id;
+    WHERE id = crop_swap_id;
     UPDATE orange_produce.crop_event_audit
         SET modified_date = now(),
-        WHERE id = crop_swap_id;
+    WHERE id = crop_swap_id;
     RETURN true;
 END;
 $$ LANGUAGE plpgsql;
