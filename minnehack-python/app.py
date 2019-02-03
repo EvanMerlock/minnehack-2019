@@ -1,36 +1,39 @@
 from flask import Flask
 from flask import render_template
+from database import db_access
+import psycopg2
 
 app = Flask(__name__)
+db = db_access.Database(psycopg2.connect())
 
 
 @app.route('/')
-def indexpage():
+def index_page():
     return render_template('index.html')
 
 
 @app.route('/farmadd')
-def farmaddpage():
+def farm_add_page():
     return render_template('farmadd.html')
 
 
 @app.route('/fieldadd')
-def fieldaddpage():
+def field_add_page():
     return render_template('fieldadd.html')
 
 
 @app.route('/blockadd')
-def blockaddpage():
+def block_add_page():
     return render_template('blockadd.html')
 
 
 @app.route('/cropadd')
-def cropaddpage():
+def crop_add_page():
     return render_template('cropadd.html')
 
 
 @app.route('/cropswap')
-def cropswappage():
+def crop_swap_page():
     return render_template('cropswap.html')
 
 
