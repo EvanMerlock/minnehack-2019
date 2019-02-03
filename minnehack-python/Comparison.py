@@ -3,12 +3,18 @@ import difflib
 farm_list = []
 #target_farm = set this to the target farm!
 
+#i was going to create test farms to test this w. then realized that this should be implemented using database stuff things.
 def test ():
     pass
 
 #questions that should be answerable
 # % of farms like urs in your area that were profitable/that lost money
 # the average profit/loss for farms like urs/farms like urs in your area/for farms.
+#"a farm like yours" means that the farm has a similar crop configuration.
+#NOT implemnted: combining the fucntions below to give the ans to the above questions.
+#needed to implement:
+#get profitloss aveage from a group/list of farms.
+
 
 
 def get_farms_in_area():
@@ -47,6 +53,7 @@ def get_farms_like_target(flist):
         #(my major bad) I belive that this would have to be rewritten using database accessers? either way,
         #adding in a way to compare one farm against all others would be a major boost for the functionality of the program
         #idk how long I'm going to sleep, but if this is possible to implement, id advice it.
+        #also note this is not currently a class.
         for n in targetdict.keys():
             sother[counter] = farmdict.get(n)
             if farmdict.has_key(n):
