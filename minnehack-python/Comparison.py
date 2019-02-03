@@ -1,8 +1,10 @@
 import math
+import difflib
 farm_list = []
 target_farm = Farm("dfdsfs")
 
-def main thing ():
+def test ():
+    pass
 
 
 # % of farms like urs in your area that were profitable/that lost money
@@ -21,6 +23,7 @@ def get_farms_in_area():
 
 def get_farms_like_target(flist):
     LIKE_PERCENT_CUTOFF = 25
+    finalfarmsliketarget = []
     targetdict = {}
     #create a dictionary of the target farm and its crop percentages
     for crop in target_farm.getCroptypes():
@@ -35,11 +38,28 @@ def get_farms_like_target(flist):
             temp[crop] = get_percentage_of_crop(farm, crop)
         farm_list.append(temp)
 
-    blockdiff = 0
+
+
     for farmdict in farm_list:
+        sother = []
+        starget = []
+        counter = 0
         for n in targetdict.keys():
+            sother[counter] = farmdict.get(n)
             if farmdict.has_key(n):
-                # percent sim measurement prepblockdiff += max(farmdict.get(n), targetdict.get(n)) - min(farmdict.get(n), targetdict.get(n))
+                starget[counter] = targetdict.get(n)
+            else:
+                starget[counter] = 0
+            counter +=1
+        for n in farmdict.keys():
+            if not targetdict.has_key(n):
+                starget[counter] = targetdict.get(n)
+                targetdict[counter] = 0
+            counter +=1
+        sumdif = difflib.SequenceMatcher(None, starget, sother)
+        if sumdif.ratio() > LIKE_PERCENT_CUTOFF:
+            finalfarmsliketarget.append(#FARM OF n)
+    return finalfarmsliketarget
     #calc percent sim
     #return percent sim
 
@@ -75,5 +95,6 @@ def compute_distance (loc1, loc2):
 
 def deg2rad(deg):
     return deg * (math.pi / 180)
+
 
 
