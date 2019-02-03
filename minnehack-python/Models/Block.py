@@ -1,29 +1,33 @@
 class Block:
 
-    def __init__(self, crop):
+    def __init__(self, name, field, crop):
         self.__crop = crop
+        self.__field = field
+        self.__name = name
+
+    def get_name(self):
+        return self.__name
 
     def get_farm(self):
-        return self.__field.get_farm()
+        return self.get_field().get_farm()
 
     def get_field(self):
-        return self.__field
+        return self.__field()
 
-    def get_blocks(self):
-        return self.__blocks
+    def get_crop(self):
+        return self.__crop()
 
+class BlockTemplate:
+    def __init__(self, name, crop, field):
+        self.__name = name
+        self.__crop = crop
+        self.__field = field
 
-    def __init__(self, estimateYield, workHours):
+    def get_name(self):
+        return self.__name
 
-        self.__estimateYield = estimateYield
-        self.__workHours = workHours
+    def get_crop(self):
+        return self.__crop
 
-    def getEstimateYield(self):
-        return self.__estimateYield
-
-    def getWorkHours(self):
-        return self.__workHours
-
-    def yieldPerHour(self):
-        return self.__estimateYield/self.__workHours
-
+    def get_name(self):
+        return self.__name
