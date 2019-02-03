@@ -13,14 +13,14 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3">
-        <form method="POST" action="farmselectionaction">
+        <form method="POST" action="index.html">
             <p>
                 Farms
             </p>
             <select name="farmselect" size="15" multiple>
                 <!--OPTIONS FOR FARM POPULATE HERE-->
                 {% for item in farms %}
-                    <option name="farm_{{ item.name }}">{{ item.name }}</option>
+                    <option name="farm_{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
             <br>
@@ -31,14 +31,14 @@
         </form>
     </div>
     <div class="col-md-4">
-        <form method="POST" action="fieldselectionaction">
+        <form method="POST" action="index.html">
             <p>
                 Fields
             </p>
             <select name="fieldselect" size="15" multiple>
                 <!--OPTIONS FOR FIELD POPULATE HERE-->
                 {% for item in fields %}
-                    <option name="field_{{ item.name }}">{{ item.name }}</option>
+                    <option name="field_{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
             <br>
@@ -48,14 +48,14 @@
             <button class="btn btn-default" name="fieldupdate" type="button">Update</button>
         </form></div>
     <div class="col-md-4">
-        <form method="POST" action="blockselectionaction">
+        <form method="POST" action="index.html">
             <p>
                 Blocks
             </p>
             <select name="blockselect" size="15" multiple>
                 <!--OPTIONS FOR BLOCK POPULATE HERE-->
                 {% for item in blocks %}
-                    <option name="block_{{ item.name }}">{{ item.name }}</option>
+                    <option name="block_{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
             <br>
