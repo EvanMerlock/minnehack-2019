@@ -1,18 +1,15 @@
 import math
 import difflib
 farm_list = []
-target_farm = Farm("dfdsfs")
+#target_farm = set this to the target farm!
 
 def test ():
     pass
 
-
+#questions that should be answerable
 # % of farms like urs in your area that were profitable/that lost money
 # the average profit/loss for farms like urs/farms like urs in your area/for farms.
 
-
-    #use bayes algo to compute the percentage likleyhood of a farm that is "close" to our target farm having each
-#sorta crop
 
 def get_farms_in_area():
     flist = []
@@ -44,6 +41,7 @@ def get_farms_like_target(flist):
         sother = []
         starget = []
         counter = 0
+        #create int lists of
         for n in targetdict.keys():
             sother[counter] = farmdict.get(n)
             if farmdict.has_key(n):
