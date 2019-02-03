@@ -19,6 +19,3 @@ class Farm:
 
     def get_croptypes(self):
         pass
-
-
-
