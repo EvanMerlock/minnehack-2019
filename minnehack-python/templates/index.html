@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <title>Index Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+          integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
 </head>
 <body>
 <div class="row">
@@ -11,9 +12,9 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-        <form method="POST" action="">
+    <form method="post" action="">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
             <p>
                 Farms
             </p>
@@ -25,13 +26,13 @@
             </select>
             <br>
             <a class="btn btn-default" role="button" href="farmadd">Add</a>&nbsp
-            <button class="btn btn-default" name="farmremove" type="submit">Remove</button>&nbsp
-            <button class="btn btn-default" name="farmedit" type="submit">Edit</button>&nbsp
+            <button class="btn btn-default" name="farmremove" type="submit">Remove</button>
+            &nbsp
+            <button class="btn btn-default" name="farmedit" type="submit">Edit</button>
+            &nbsp
             <button class="btn btn-default" name="farmupdate" type="submit">Update</button>
-        </form>
-    </div>
-    <div class="col-md-4">
-        <form method="POST" action="">
+        </div>
+        <div class="col-md-4">
             <p>
                 Fields
             </p>
@@ -43,12 +44,13 @@
             </select>
             <br>
             <a class="btn btn-default" role="button" href="fieldadd">Add</a>&nbsp
-            <button class="btn btn-default" name="fieldremove" type="submit">Remove</button>&nbsp
-            <button class="btn btn-default" name="fieldedit" type="submit">Edit</button>&nbsp
-            <button class="btn btn-default" name="fieldupdate" type="button">Update</button>
-        </form></div>
-    <div class="col-md-4">
-        <form method="POST" action="">
+            <button class="btn btn-default" name="fieldremove" type="submit">Remove</button>
+            &nbsp
+            <button class="btn btn-default" name="fieldedit" type="submit">Edit</button>
+            &nbsp
+            <button class="btn btn-default" name="fieldupdate" type="submit">Update</button>
+        </div>
+        <div class="col-md-4">
             <p>
                 Blocks
             </p>
@@ -60,16 +62,21 @@
             </select>
             <br>
             <a class="btn btn-default" href="blockadd" role="button">Add</a>&nbsp
-            <button class="btn btn-default" name="blockremove" type="submit">Remove</button>&nbsp
-            <button class="btn btn-default" name="blockedit" type="submit">Edit</button>&nbsp
-            <button class="btn btn-default" name="blockupdate" type="button">Update</button>
-        </form></div>
+            <button class="btn btn-default" name="blockremove" type="submit">Remove</button>
+            &nbsp
+            <button class="btn btn-default" name="blockedit" type="submit">Edit</button>
+            &nbsp
+            <button class="btn btn-default" name="blockupdate" type="submit">Update</button>
+        </div>
+    </form>
 </div>
 <br><br>
 <div class="row">
-    <div class="col-md-1"></div><div class="col-md-11">
-    <a class="btn btn-default" href="cropadd" role="button">Add a new Crop</a><br>
-    <a class="btn btn-default" href="cropswap" role="button">Set up a Crop Swap</a>
-</div></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <a class="btn btn-default" href="cropadd" role="button">Add a new Crop</a><br>
+        <a class="btn btn-default" href="cropswap" role="button">Set up a Crop Swap</a>
+    </div>
+</div>
 </body>
 </html>

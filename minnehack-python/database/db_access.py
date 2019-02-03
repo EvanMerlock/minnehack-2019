@@ -13,7 +13,7 @@ class Database():
 
     def add_farm(self, farm_template):
         cursor = self.__connection.cursor()
-        cursor.execute("SELECT * FROM orange_produce.insert_farm(1,%s,%s)", (farm_template.get_name(), farm_template.get_location()))
+        cursor.execute("SELECT * FROM orange_produce.insert_farm(1,%s::text,%s::point)", (farm_template.get_name(), farm_template.get_location()))
         return cursor.fetchone()[0]
 
     def add_field(self, field_template):
@@ -196,7 +196,7 @@ class Database():
 
     def convert_block(self, tuple_item):
         print(tuple_item)
-        return Block(tuple_item[1], tuple_item[2], functools.partial(self.get_field, tuple_item[3]), functools.partial(self.get_crop, tuple_item[4]))
+        return Block(tuple_item[4], tuple_item[1], functools.partial(self.get_field, tuple_item[3]), functools.partial(self.get_crop, tuple_item[4]))
 
     def convert_crop(self, tuple_item):
         print(tuple_item)

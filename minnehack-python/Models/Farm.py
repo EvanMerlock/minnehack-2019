@@ -34,4 +34,4 @@ class FarmTemplate:
         return self.__name
 
     def get_location(self):
-        return self.__loc
+        return "(" + self.__loc[0] + ", " + self.__loc[1] + ")"

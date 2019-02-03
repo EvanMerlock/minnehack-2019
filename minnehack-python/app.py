@@ -1,4 +1,6 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
+
+from Models.Farm import FarmTemplate
 from database import db_access
 import psycopg2
 
@@ -32,9 +34,15 @@ def index_page():
             return render_template('index.html', farms=farms, fields=fields, blocks=[])
         elif "fieldupdate" in request.form:
             farms = db.get_all_farms()
-            fields = db.get_fields_from_farm(int(request.form['farmselect'].replace("farm_", "")))
-            blocks = db.get_blocks_from_field(int(request.form['fieldselect'].replace("field_", "")))
-            return render_template('index.html', farms=farms, fields=fields, blocks=blocks)
+            for item in farms:
+                if item.get_name() == request.form['farmselect'].replace("farm_", ""):
+                    fields = db.get_fields_from_farm(item.get_id())
+                    for item_2 in fields:
+                        if item_2.get_name() == request.form['fieldselect'].replace("field_", ""):
+                            blocks = db.get_blocks_from_field(item_2.get_id())
+                            return render_template('index.html', farms=farms, fields=fields, blocks=blocks)
+                    return render_template('index.html', farms=farms, fields=fields, blocks=[])
+            return render_template('index.html', farms=farms, fields=[], blocks=[])
         elif "fieldedit" in request.form:
             pass
         elif "blockremove" in request.form:
@@ -47,9 +55,15 @@ def index_page():
             pass
         elif "blockupdate" in request.form:
             farms = db.get_all_farms()
-            fields = db.get_fields_from_farm(int(request.form['farmselect'].replace("farm_", "")))
-            blocks = db.get_blocks_from_field(int(request.form['fieldselect'].replace("field_", "")))
-            return render_template('index.html', farms=farms, fields=fields, blocks=blocks)
+            for item in farms:
+                if item.get_name() == request.form['farmselect'].replace("farm_", ""):
+                    fields = db.get_fields_from_farm(item.get_id())
+                    for item_2 in fields:
+                        if item_2.get_name() == request.form['fieldselect'].replace("field_", ""):
+                            blocks = db.get_blocks_from_field(item_2.get_id())
+                            return render_template('index.html', farms=farms, fields=fields, blocks=blocks)
+                    return render_template('index.html', farms=farms, fields=fields, blocks=[])
+            return render_template('index.html', farms=farms, fields=[], blocks=[])
         else:
             # assume farmdelete
             selected_farm = int(request.form['farmselect'].replace("farm_", ""))
@@ -63,6 +77,13 @@ def index_page():
 @app.route('/farmadd')
 def farm_add_page():
     return render_template('farmadd.html')
+
+@app.route('/addfarmaction', methods=['POST'])
+def farm_add_action():
+    if request.method == 'POST':
+        temp_farm = FarmTemplate(request.form['farmname'], (request.form['farmlongitude'], request.form['farmlatitude']))
+        db.add_farm(temp_farm)
+        return redirect('/')
 
 
 @app.route('/fieldadd')
@@ -83,6 +104,10 @@ def crop_add_page():
 @app.route('/cropswap')
 def crop_swap_page():
     return render_template('cropswap.html')
+
+@app.route('/farmedit', methods=['POST'])
+def farm_edit_page():
+    return render_template()
 
 
 if __name__ == '__main__':
