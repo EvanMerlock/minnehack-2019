@@ -1,8 +1,12 @@
 class CropEvent():
-    def __init__(self, old_crop, new_crop, date):
+    def __init__(self, cid, old_crop, new_crop, date):
+        self.__cid = cid
         self.__old_crop = old_crop
         self.__new_crop = new_crop
         self.__date = date
+
+    def get_id(self):
+        return self.__cid
 
     def get_old_crop(self):
         return self.__old_crop()

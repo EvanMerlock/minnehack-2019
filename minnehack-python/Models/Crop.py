@@ -1,10 +1,14 @@
 class Crop:
-    def __init__(self, name, countryName, marketValuePerBlock, YieldTime, costPerBlock):
+    def __init__(self, cid, name, countryName, marketValuePerBlock, YieldTime, costPerBlock):
+        self.__id = cid
         self.__name = name
         self.__countryName = countryName
         self.__marketValuePerBlock = marketValuePerBlock
         self.__YieldTime = YieldTime
         self.__costPerBlock = costPerBlock
+
+    def get_id(self):
+        return self.__id
 
     def getName(self):
         return self.__name
@@ -20,18 +24,6 @@ class Crop:
 
     def getCostPerBlock(self):
         return self.__costPerBlock
-
-    def getFields(self):
-        pass
-
-    def getFarms(self):
-        pass
-
-    def getCropRotation(self):
-        pass
-
-    def getBlock(self):
-        pass
 
     def calcProfit(self):
         return self.__marketValuePerBlock - self.__costPerBlock
@@ -62,5 +54,3 @@ class CropTemplate:
 
     def get_cost_per_unit(self):
         return self.__cpu
-
-

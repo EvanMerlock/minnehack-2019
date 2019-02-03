@@ -1,8 +1,12 @@
 class Field:
-    def __init__(self, name, farm, blocks):
+    def __init__(self, id, name, farm, blocks):
+        self.__id = id
         self.__name = name
         self.__farm = farm
         self.__blocks = blocks
+
+    def get_id(self):
+        return self.__id
 
     def get_name(self):
         return self.__name

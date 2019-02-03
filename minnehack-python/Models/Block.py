@@ -1,9 +1,13 @@
 class Block:
 
-    def __init__(self, name, field, crop):
+    def __init__(self, bid, name, field, crop):
+        self.__id = bid
         self.__crop = crop
         self.__field = field
         self.__name = name
+
+    def get_id(self):
+        return self.__id
 
     def get_name(self):
         return self.__name
@@ -16,6 +20,7 @@ class Block:
 
     def get_crop(self):
         return self.__crop()
+
 
 class BlockTemplate:
     def __init__(self, name, crop, field):
