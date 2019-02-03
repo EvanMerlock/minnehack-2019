@@ -13,25 +13,25 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3">
-        <form method="POST" action="index.html">
+        <form method="POST" action="">
             <p>
                 Farms
             </p>
             <select name="farmselect" size="15" multiple>
                 <!--OPTIONS FOR FARM POPULATE HERE-->
                 {% for item in farms %}
-                    <option name="farm_{{ item.id }}">{{ item.name }}</option>
+                    <option name="farm_{{ item.get_id() }}">{{ item.get_name() }}</option>
                 {% endfor %}
             </select>
             <br>
             <a class="btn btn-default" role="button" href="farmadd">Add</a>&nbsp
             <button class="btn btn-default" name="farmremove" type="submit">Remove</button>&nbsp
             <button class="btn btn-default" name="farmedit" type="submit">Edit</button>&nbsp
-            <button class="btn btn-default" name="farmupdate" type="button">Update</button>
+            <button class="btn btn-default" name="farmupdate" type="submit">Update</button>
         </form>
     </div>
     <div class="col-md-4">
-        <form method="POST" action="index.html">
+        <form method="POST" action="">
             <p>
                 Fields
             </p>
@@ -48,7 +48,7 @@
             <button class="btn btn-default" name="fieldupdate" type="button">Update</button>
         </form></div>
     <div class="col-md-4">
-        <form method="POST" action="index.html">
+        <form method="POST" action="">
             <p>
                 Blocks
             </p>

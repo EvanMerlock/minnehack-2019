@@ -1,25 +1,29 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, request, render_template
 from database import db_access
 import psycopg2
 
 app = Flask(__name__)
-db = db_access.Database(psycopg2.connect())
+db = db_access.Database(psycopg2.connect("postgresql://farmers_project:yoloswag@104.154.96.65:5432/farmers_project"))
 
 
 @app.route('/', methods=['POST', 'GET'])
-def index_page(request):
+def index_page():
     if request.method == "GET":
         farms = db.get_all_farms()
+        print(farms)
         return render_template('index.html', farms=farms, fields=[], blocks=[])
     else:
         if "farmupdate" in request.form:
             farms = db.get_all_farms()
-            fields = db.get_fields_from_farm(int(request.form['farmselect'].replace("farm_", "")))
-            return render_template('index.html', farms=farms, fields=fields, blocks=[])
+            for item in farms:
+                if item.get_name() == request.form['farmselect'].replace("farm_", ""):
+                    fields = db.get_fields_from_farm(item.get_id())
+                    return render_template('index.html', farms=farms, fields=fields, blocks=[])
+            return render_template('index.html', farms=farms, fields=[], blocks=[])
         elif "farmedit" in request.form:
             pass
         elif "fieldremove" in request.form:
+            print(request.form)
             selected_farm = int(request.form['farmselect'].replace("farm_", ""))
             selected_field = int(request.form['fieldselect'].replace("field_", ""))
             db.remove_field(selected_field)
