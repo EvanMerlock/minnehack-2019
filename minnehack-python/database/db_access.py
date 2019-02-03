@@ -34,20 +34,25 @@ class Database():
         cursor.execute("orange_produce.insert_crop_swap_event(1, %s, %s, %s)",
                        (crop_event_template.get_old_crop(), crop_event_template.get_new_crop(), crop_event_template.get_date()))
 
-    def remove_farm(self, farm):
-        pass
+    def remove_farm(self, farm_id):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.remove_farm(%s)", (farm_id))
 
-    def remove_field(self, field):
-        pass
+    def remove_field(self, field_id):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.remove_field(%s)", (field_id))
 
-    def remove_block(self, block):
-        pass
+    def remove_block(self, block_id):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.remove_block(%s)", (block_id))
 
-    def remove_crop(self, crop):
-        pass
+    def remove_crop(self, crop_id):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.remove_crop(%s)", (crop_id))
 
-    def remove_crop_event(self, crop_event):
-        pass
+    def remove_crop_event(self, crop_event_id):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.remove_crop_swap_event(%s)", (crop_event_id))
 
     def update_farm(self, farm_id, farm):
         pass
