@@ -46,9 +46,9 @@ CREATE TABLE orange_produce.blocks_audit(
 CREATE TABLE orange_produce.crops(
     id              big_serial,
     name            text NOT NULL,
-    market_value    decimal NOT NULL,
+    market_value    money NOT NULL,
     yield_time      integer NOT NULL,
-    cost_per        decimal NOT NULL,
+    cost_per        money NOT NULL,
     created_by      bigint REFERENCES orange_produce.users ON DELETE CASCADE,
     primary_key(id)
 );
