@@ -3,9 +3,15 @@ import difflib
 
 class Comparison:
 
-    def __init__(self, farmlist, tfarm):
-        self.target_farm = tfarm
-        self.farm_list = farmlist
+    #the constructor takes a db_accees obj and the name of the selected farm
+    def __init__(self, db_access, tfarmname):
+        self.farm_list = db_access.get_all_farms()
+        for farm in self.farm_list:
+            if farm.get_name() == tfarmname:
+                self.target_farm = farm
+                self.farm_list.remove(farm)
+
+
 
     # questions that should be answerable
     # % of farms like urs in your area that were profitable/that lost money
@@ -16,6 +22,7 @@ class Comparison:
     # get profitloss aveage from a group/list of farms.
 
     #answers our question: what is the average profit/loss for farms like urs in your area?
+    #returns the thing to show the user
     def ans_question(self):
         f = self.get_farms_in_area()
         f = self.get_farms_like_target(f)
