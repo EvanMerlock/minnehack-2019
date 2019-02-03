@@ -23,7 +23,7 @@
             <select name="fieldsuperfarm">
                 <!-- OPTIONS FOR FARM POPLUATE HERE-->
                 {% for item in farms %}
-                    <option name="farm_item.get_id() "> item.get_name() </option>
+                    <option name="farm_{{ item.get_id() }}">{{ item.get_name() }}</option>
                 {% endfor %}
             </select>&nbsp
             <button type="button" name="updatefieldlist" action="updatefields">Update Fields</button>
@@ -32,7 +32,7 @@
             <select name="blocksuperfield" disabled>
                 <!--OPTIONS FOR FIELDS POPULATE HERE ON UPDATEFIELDLIST ACTION + ENABLE-->
                 {% for item in fields %}
-                    <option name="farm_item.get_id() "> item.get_name() </option>
+                    <option name="farm_{{ item.get_id() }}">{{ item.get_name() }}</option>
                 {% endfor %}
             </select>
             <br>
@@ -40,7 +40,7 @@
             <select name="cropforblock">
                 <!--OPTIONS FOR CROPS POPULATE HERE -->
                 {% for item in crops %}
-                    <option name="farm_item.get_id() "> item.get_name() </option>
+                    <option name="farm_{{ item.get_id() }}">{{ item.get_name() }}</option>
                 {% endfor %}
             </select>
             <br>
