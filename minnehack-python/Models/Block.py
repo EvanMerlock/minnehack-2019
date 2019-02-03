@@ -1,4 +1,5 @@
 class Block:
+<<<<<<< HEAD
     def __init__(self, crop):
         self.__crop = crop
 
@@ -10,3 +11,19 @@ class Block:
 
     def get_blocks(self):
         return self.__blocks
+=======
+
+    def __init__(self, estimateYield, workHours):
+
+        self.__estimateYield = estimateYield
+        self.__workHours = workHours
+
+    def getEstimateYield(self):
+        return self.__estimateYield
+
+    def getWorkHours(self):
+        return self.__workHours
+
+    def yieldPerHour(self):
+        return self.__estimateYield/self.__workHours
+>>>>>>> 45422a651897c4d4032b1e3c4a482f8a7bb62694
