@@ -13,3 +13,9 @@ BEGIN
     RETURN farm_id;
 END;
 $$ LANGUAGE pgplsql;
+
+CREATE OR REPLACE FUNCTION orange_produce.fields(int, int, text) RETURNS int AS $$
+DECLARE
+    temp_user_id       ALIAS FOR $1;
+    farm_name          ALIAS FOR $2;
+    
