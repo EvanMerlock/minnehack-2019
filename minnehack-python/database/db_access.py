@@ -188,19 +188,19 @@ class Database():
 
     def convert_farm(self, tuple_item):
         print(tuple_item)
-        return Farm(tuple_item[1], tuple_item[3], tuple_item[2], functools.partial(self.get_fields_from_farm, tuple_item[1]), 0)
+        return Farm(tuple_item[1], tuple_item[0], tuple_item[2], functools.partial(self.get_fields_from_farm, tuple_item[1]), 0)
 
     def convert_field(self, tuple_item):
         print(tuple_item)
-        return Field(tuple_item[3], tuple_item[1], tuple_item[2], functools.partial(self.get_blocks_from_field, tuple_item[1]))
+        return Field(tuple_item[0], tuple_item[1], tuple_item[2], functools.partial(self.get_blocks_from_field, tuple_item[1]))
 
     def convert_block(self, tuple_item):
         print(tuple_item)
-        return Block(tuple_item[4], tuple_item[1], functools.partial(self.get_field, tuple_item[3]), functools.partial(self.get_crop, tuple_item[4]))
+        return Block(tuple_item[0], tuple_item[1], functools.partial(self.get_field, tuple_item[3]), functools.partial(self.get_crop, tuple_item[4]))
 
     def convert_crop(self, tuple_item):
         print(tuple_item)
-        return Crop(tuple_item[1], tuple_item[2], tuple_item[3], tuple_item[4], tuple_item[5], tuple_item[6])
+        return Crop(tuple_item[0], tuple_item[2], tuple_item[3], tuple_item[4], tuple_item[5], tuple_item[6])
 
     def convert_crop_event(self, tuple_item):
         print(tuple_item)
