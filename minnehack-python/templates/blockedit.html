@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Edit a Block</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+</head>
+<body>
+<div class="row">
+<div class="col-md-1"><a href="index.html"> < Back</a></div>
+<div class="col-md-11">
+<h1>Edit a Block</h1>
+</div>
+</div>
+<div class="row">
+<div class="col-md-1"></div>
+<div class="col-md-11">
+<form method="POST" action="editblockaction">
+<label name="blocknamelabel">Block Name:</label>&nbsp
+<input type="text" name="blockname"></input>
+<br>
+<label name="blocksuperfieldsuperfarm">Which Farm is this Field a part of?</label>&nbsp
+<select name="fieldsuperfarm">
+<!-- OPTIONS FOR FARM POPLUATE HERE-->
+<option name="farmexample">Farm Example 1
+<option name="farmexample2">Farm Example 2
+</select>&nbsp
+<button type="button" name="updatefieldlist" action="updatefields">Update Fields</button>
+<br>
+<label name="blocksuperfieldlabel">Which Field is this Block a part of?</label>&nbsp
+<select name="blocksuperfield" disabled>
+<!--OPTIONS FOR FIELDS POPULATE HERE ON UPDATEFIELDLIST ACTION + ENABLE-->
+<option name="fieldexample1"> Field Example 1
+<option name="fieldexample2">Field Example 2
+</select>
+<br>
+<label name="cropforblock">Which Crop is in this Block?</label>&nbsp
+<select name="cropforblock">
+<!--OPTIONS FOR CROPS POPULATE HERE -->
+<option name="cropexample1"> Crop Example 1
+<option name="cropexample2">Crop Example 2
+</select>
+<br>
+<button type="submit" name="blockeditsubmit">Submit Changes</button>
+</form>
+</div>
+</div>
+</body>
+</html>
