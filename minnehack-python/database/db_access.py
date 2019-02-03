@@ -1,4 +1,3 @@
-import psycopg2
 import functools
 
 from Models.Block import Block
@@ -54,20 +53,29 @@ class Database():
         cursor = self.__connection.cursor()
         cursor.execute("orange_produce.remove_crop_swap_event(%s)", (crop_event_id))
 
-    def update_farm(self, farm_id, farm):
-        pass
+    def update_farm(self, farm_id, farm_template):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.update_farm(%s,%s,%s,NULL)", (farm_id, farm_template.get_name(), farm_template.get_location()))
 
-    def update_field(self, field_id, field):
-        pass
+    def update_field(self, field_id, field_template):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.update_field(%s, %s, %s, 1)", (field_id, field_template.get_name(), field_template.get_farm_id()))
 
-    def update_block(self, block_id, block):
-        pass
+    def update_block(self, block_id, block_template):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.update_block(%s, %s, %s, 1, %s)",
+                       (block_id, block_template.get_name(), block_template.get_field(), block_template.get_crop()))
 
-    def update_crop(self, crop_id, crop):
-        pass
+    def update_crop(self, crop_id, crop_template):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.update_crop(%s, %s, %s, %s, %s, %s, 1)",
+                       (crop_id, crop_template.get_name(), crop_template.get_country_name(),
+                        crop_template.get_market_value_per_unit(), crop_template.get_yield_time(), crop_template.get_cost_per_unit()))
 
-    def update_crop_event(self, crop_event_id, crop_event):
-        pass
+    def update_crop_event(self, crop_event_id, crop_event_template):
+        cursor = self.__connection.cursor()
+        cursor.execute("orange_produce.update_crop_swap_event(%s, %s, %s, %s, 1)",
+                       (crop_event_id, crop_event_template.get_old_crop(), crop_event_template.get_new_crop(), crop_event_template.get_date()))
 
     def get_farm(self, farm_id):
         cursor = self.__connection.cursor()
