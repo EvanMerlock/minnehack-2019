@@ -20,14 +20,14 @@ class Analysis:
         # p much search through file_string (string version of YieldperTon for the lbs per acre for the crop specified in crop_string, convert it to tons, and then return it.
         # make sure to include what happens when the crop is not in the file_string
 
-        with crop_string as csv_file:
+        with crop_string as csvfile:
 
-            csv_reader = csv.reader(csv_file, delimiter=",")
+            csv_reader = csv.reader(csvfile, delimiter=",")
 
             for row in csv_reader:
 
                 if row[0] == search_string:
-                    return row[1] / 2000
+                    return int(row[1]) / 2000
 
     def get_cost_per_ton(self, crop_string, search_string):
         pass
@@ -39,9 +39,9 @@ class Analysis:
         # creates a new crop using the cost_per_ton and _yield_per_acre methods.
         # adds the crop to to database
 
-        with crop_string as csv_file:
+        with crop_string as csvfile:
 
-            csv_reader = csv.reader(csv_file, delimiter=",")
+            csv_reader = csv.reader(csvfile, delimiter=",")
 
             for row in csv_reader:
 
@@ -60,15 +60,16 @@ class Analysis:
         # crop = Models.Crop.Crop(row[7], row[3], 0, 0, row[12])
 
     def stage_one_convert(self, crop_string, search_string):
-        with crop_string as csv_file:
 
-            csv_reader = csv.reader(csv_file, delimiter=",")
+        with crop_string as csvfile:
+
+            csv_reader = csv.reader(csvfile, delimiter=",")
             # line_count = 0
 
             for row in csv_reader:
 
-                if row[7] == search_string:
-                    return row[12]
+                if row[7] == " " + search_string:
+                    return row[11]
 
 
 anal = Analysis()
@@ -76,11 +77,11 @@ anal = Analysis()
 #file1 = open("C:\Users\colem\PycharmProjects\minnehack-2019\Data\TESTFOASTAT.txt", 'r', encoding="utf-8")
 #file2 = open("C:\users\colem\PycharmProjects\minnehack-2019\Data\TESTYieldperacre.txt", 'r', encoding="utf-8")
 
-file1 = open("TESTFOASTAT.txt", 'r')
-file2 = open("TESTYieldperacre.txt", 'r')
+file1 = open("TESTFAOSTAT.csv", 'r')
+file2 = open("TESTYieldperacre.csv", 'r')
 
-string1 = file1.readline()
-string2 = file2.readline()
+#string1 = file1.readline()
+#string2 = file2.readline()
 
-print(anal.get_cost_per_ton(string1, "Apples"))
-print(anal.get_yield_per_acre(string2, "Apples"))
+print(anal.get_cost_per_ton(file1, "Apples").strip(" "))
+print(anal.get_yield_per_acre(file2, "Apples"))
