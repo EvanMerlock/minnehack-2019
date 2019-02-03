@@ -23,7 +23,7 @@ class Database():
 
     def add_block(self, block_template):
         cursor = self.__connection.cursor()
-        cursor.execute("SELECT * FROM orange_produce.insert_block(1, %s, %s, %s", (block_template.get_field(), block_template.get_name(), block_template.get_crop()))
+        cursor.execute("SELECT * FROM orange_produce.insert_block(1, %s, %s, %s)", (block_template.get_field(), block_template.get_name(), block_template.get_crop()))
         return cursor.fetchone()[0]
 
     def add_crop(self, crop_template):
@@ -192,7 +192,7 @@ class Database():
 
     def convert_field(self, tuple_item):
         print(tuple_item)
-        return Field(tuple_item[1], tuple_item[2], tuple_item[3], functools.partial(self.get_blocks_from_field, tuple_item[1]))
+        return Field(tuple_item[3], tuple_item[1], tuple_item[2], functools.partial(self.get_blocks_from_field, tuple_item[1]))
 
     def convert_block(self, tuple_item):
         print(tuple_item)
