@@ -60,6 +60,8 @@ class Analysis:
         # crop = Models.Crop.Crop(row[7], row[3], 0, 0, row[12])
 
     def stage_one_convert(self, crop_string, search_string):
+        #Reads a csv file and uses a csv reader to search each row for a given string
+        #Then, it returns the value associated with that fruit or vegtable string
 
         with crop_string as csvfile:
 
@@ -74,14 +76,12 @@ class Analysis:
 
 anal = Analysis()
 
+#Couldn't get this directory to work, needed to move files in the same directory as the python file
 #file1 = open("C:\Users\colem\PycharmProjects\minnehack-2019\Data\TESTFOASTAT.txt", 'r', encoding="utf-8")
 #file2 = open("C:\users\colem\PycharmProjects\minnehack-2019\Data\TESTYieldperacre.txt", 'r', encoding="utf-8")
 
 file1 = open("TESTFAOSTAT.csv", 'r')
 file2 = open("TESTYieldperacre.csv", 'r')
-
-#string1 = file1.readline()
-#string2 = file2.readline()
 
 print(anal.get_cost_per_ton(file1, "Apples").strip(" "))
 print(anal.get_yield_per_acre(file2, "Apples"))

@@ -1,7 +1,7 @@
 import math
 import difflib
 farm_list = []
-#target_farm = set this to the target farm!
+target_farm = None
 
 #i was going to create test farms to test this w. then realized that this should be implemented using database stuff things.
 def test ():
@@ -17,6 +17,9 @@ def test ():
 
 
 
+def set_target_farm(farm):
+    target_farm = farm
+
 def get_farms_in_area():
     flist = []
     for farm in farm_list:
@@ -30,7 +33,7 @@ def get_farms_like_target(flist):
     targetdict = {}
     #create a dictionary of the target farm and its crop percentages
     for crop in target_farm.getCroptypes():
-        dict[crop] = get_percentage_of_crop(target_farm, crop)
+        targetdict[crop] = get_percentage_of_crop(target_farm, crop)
 
     #create dictionaries of the farms and their crop percentages
     farm_dict ={}
