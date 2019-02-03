@@ -26,4 +26,4 @@ class Block:
 
     def yieldPerHour(self):
         return self.__estimateYield/self.__workHours
->>>>>>> 45422a651897c4d4032b1e3c4a482f8a7bb62694
+
