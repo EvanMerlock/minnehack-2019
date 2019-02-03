@@ -41,7 +41,12 @@ def get_farms_like_target(flist):
         sother = []
         starget = []
         counter = 0
-        #create int lists of
+        #create int lists of percentages for each type of crop, in order (X1 in sother corresponds to X1 in starget
+        #then these lists are compared using difflib, and if they are above the cuttoff, the farm is added to the final
+        #farms list. Right now, I didn't bring the farm wiht the dictionary, so we don't have a link back to the farm to add
+        #(my major bad) I belive that this would have to be rewritten using database accessers? either way,
+        #adding in a way to compare one farm against all others would be a major boost for the functionality of the program
+        #idk how long I'm going to sleep, but if this is possible to implement, id advice it.
         for n in targetdict.keys():
             sother[counter] = farmdict.get(n)
             if farmdict.has_key(n):
@@ -56,7 +61,7 @@ def get_farms_like_target(flist):
             counter +=1
         sumdif = difflib.SequenceMatcher(None, starget, sother)
         if sumdif.ratio() > LIKE_PERCENT_CUTOFF:
-            finalfarmsliketarget.append(#FARM OF n)
+            finalfarmsliketarget.append(#FARM OF n) #I think I need to add the farm to the dict
     return finalfarmsliketarget
     #calc percent sim
     #return percent sim
