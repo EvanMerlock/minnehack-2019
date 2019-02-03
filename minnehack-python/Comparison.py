@@ -2,6 +2,7 @@ import math
 import difflib
 farm_list = []
 target_farm = None
+targetdict = {}
 
 #i was going to create test farms to test this w. then realized that this should be implemented using database stuff things.
 def test ():
@@ -30,10 +31,11 @@ def get_farms_in_area():
 def get_farms_like_target(flist):
     LIKE_PERCENT_CUTOFF = 25
     finalfarmsliketarget = []
-    targetdict = {}
+    #targetdict = {}
     #create a dictionary of the target farm and its crop percentages
     for crop in target_farm.getCroptypes():
         targetdict[crop] = get_percentage_of_crop(target_farm, crop)
+        #targetdict.add(crop, get_percentage_of_crop(target_farm, crop))
 
     #create dictionaries of the farms and their crop percentages
     farm_dict ={}
@@ -42,6 +44,7 @@ def get_farms_like_target(flist):
         temp = {}
         for crop in farm.getCroptypes():
             temp[crop] = get_percentage_of_crop(farm, crop)
+            #temp.add(crop, get_percentage_of_crop(farm, crop))
         farm_list.append(temp)
 
 
@@ -71,20 +74,20 @@ def get_farms_like_target(flist):
             counter +=1
         sumdif = difflib.SequenceMatcher(None, starget, sother)
         if sumdif.ratio() > LIKE_PERCENT_CUTOFF:
-            finalfarmsliketarget.append(#FARM OF n) #I think I need to add the farm to the dict
+            finalfarmsliketarget.append(farmdict) #I think I need to add the farm to the dict
     return finalfarmsliketarget
     #calc percent sim
     #return percent sim
 
 
 
-def get_percentage_of_crop(farm, cro):
+def get_percentage_of_crop(farm, crop):
     totalblocks = 0
     totalcrop = 0
     for field in farm.get_fields():
         for block in field.get_blocks():
             totalblocks +=1
-            if block.get_crop() == cro:
+            if block.get_crop() == crop:
                 totalcrop +=1
     return totalblocks/totalcrop
 
