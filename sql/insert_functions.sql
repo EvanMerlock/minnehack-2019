@@ -24,7 +24,7 @@ BEGIN
     INSERT INTO orange_produce.fields(id, name, contained_in, created_by)
         VALUES (DEFAULT, field_name, farm_id, temp_user_id)
         RETURNING id INTO field_id;
-    INSERT INTO orange_produce.field_audit(id, created_date, modified_date)
+    INSERT INTO orange_produce.fields_audit(id, created_date, modified_date)
         VALUES(field_id, now(), now());
     RETURN farm_id;
 END;
@@ -51,14 +51,14 @@ CREATE OR REPLACE FUNCTION orange_produce.insert_crop(int, text, money, integer,
 DECLARE
     temp_user_id        ALIAS FOR $1;
     crop_name           ALIAS FOR $2;
-    market_value        ALIAS FOR $3;
-    yield_time          ALIAS FOR $4;
+    t_market_value        ALIAS FOR $3;
+    t_yield_time          ALIAS FOR $4;
     cost_per_unit       ALIAS FOR $5;
-    country             ALIAS FOR $6;
+    t_country             ALIAS FOR $6;
     crop_id             int;
 BEGIN
     INSERT INTO orange_produce.crops(id, name, country, market_value, yield_time, cost_per, created_by)
-        VALUES(DEFAULT, crop_name, country, market_value, yield_time, cost_per_unit, temp_user_id)
+        VALUES(DEFAULT, crop_name, t_country, t_market_value, t_yield_time, cost_per_unit, temp_user_id)
         RETURNING id into crop_id;
     INSERT INTO orange_produce.crops_audit(id, created_date, modified_date)
         VALUES(crop_id, now(), now());
@@ -71,11 +71,11 @@ DECLARE
     temp_user_id        ALIAS FOR $1;
     prev_crop_id        ALIAS FOR $2;
     next_crop_id        ALIAS FOR $3;
-    swap_date           ALIAS FOR $4;
+    t_swap_date           ALIAS FOR $4;
     crop_swap_id        int;
 BEGIN
     INSERT INTO orange_produce.crop_swap_event(id, previous_crop, new_crop, swap_date, created_by)
-        VALUES (DEFAULT, prev_crop_id, new_crop_id, swap_date, temp_user_id)
+        VALUES (DEFAULT, prev_crop_id, next_crop_id, t_swap_date, temp_user_id)
         RETURNING id INTO crop_swap_id;
     INSERT INTO orange_produce.crop_event_audit(id, created_date, modified_date)
         VALUES(crop_swap_id, now(), now());

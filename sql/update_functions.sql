@@ -6,7 +6,7 @@ DECLARE
     mod_created_by_id       ALIAS FOR $4;
 BEGIN
     UPDATE orange_produce.farms
-        SET farm_name = coalesce(mod_farm_name, farm_name),
+        SET name = coalesce(mod_farm_name, name),
             location = coalesce(mod_farm_location, location),
             created_by = coalesce(mod_created_by_id, created_by)
     WHERE id = farm_id;
@@ -25,7 +25,7 @@ DECLARE
     mod_created_by_id       ALIAS FOR $4;
 BEGIN
     UPDATE orange_produce.fields
-        SET field_name = coalesce(mod_field_name, field_name),
+        SET name = coalesce(mod_field_name, name),
             contained_in = coalesce(mod_contained_in, contained_in),
             created_by = coalesce(mod_created_by_id, created_by)
     WHERE id = field_id;
@@ -45,7 +45,7 @@ DECLARE
     mod_crop_id             ALIAS FOR $5;
 BEGIN
     UPDATE orange_produce.blocks
-        SET block_name = coalesce(mod_block_name, block_name),
+        SET name = coalesce(mod_block_name, name),
             contained_in = coalesce(mod_contained_in, contained_in),
             created_by = coalesce(mod_created_by_id, created_by),
             crop = coalesce(mod_crop_id, crop)
@@ -68,8 +68,8 @@ DECLARE
     mod_created_by          ALIAS FOR $7;
 BEGIN
     UPDATE orange_produce.crops
-        SET crop_name       = coalesce(mod_crop_name, crop_name),
-            country         = coalesce(mod_country_name, country_name),
+        SET name       = coalesce(mod_crop_name, name),
+            country         = coalesce(mod_country, name),
             market_value    = coalesce(mod_market_value, market_value),
             yield_time      = coalesce(mod_yield_time, yield_time),
             cost_per        = coalesce(mod_cost_per, cost_per),
@@ -92,7 +92,7 @@ DECLARE
 BEGIN
     UPDATE orange_produce.crop_swap_event
         SET previous_crop = coalesce(mod_crop_swap_prev, previous_crop),
-            next_crop     = coalesce(mod_crop_swap_next, next_crop),
+            new_crop     = coalesce(mod_crop_swap_next, new_crop),
             created_by    = coalesce(mod_created_by, created_by),
             swap_date     = coalesce(mod_time_swap, swap_date)
     WHERE id = crop_swap_id;

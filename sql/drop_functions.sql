@@ -11,7 +11,7 @@ CREATE OR REPLACE FUNCTION orange_produce.remove_field(int) RETURNS boolean AS $
 DECLARE
     removing_id     ALIAS FOR $1;
 BEGIN
-    DELETE FROM orange_produce.field WHERE id = removing_id;
+    DELETE FROM orange_produce.fields WHERE id = removing_id;
     RETURN true;
 END;
 $$ LANGUAGE plpgsql;
