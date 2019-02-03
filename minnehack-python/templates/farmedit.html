@@ -1,30 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Edit a Farm</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+    <title>Edit a Farm</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+          integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
 </head>
 <body>
 <div class="row">
-<div class="col-md-1"><a href="/"> < Back</a></div>
-<div class="col-md-11">
-<h1>Edit a Farm</h1>
-</div>
+    <div class="col-md-1"><a href="/"> < Back</a></div>
+    <div class="col-md-11">
+        <h1>Edit a Farm</h1>
+    </div>
 </div>
 <div class="row">
-<div class="col-md-1"></div>
-<div class="col-md-11">
-<form method="POST" action="editfarmaction">
-<label name="farmnamelabel">Farm Name:</label>&nbsp
-<input type="text" name="farmname"></input>
-<br>
-<label name="farmlocationlabel">Farm Longitude and Latitude</label>&nbsp
-<input type="number" name="farmlongitude"></input>&nbsp
-<input type="number" name="farmlatitude"></input>
-<br>
-<button type="submit" name="farmeditsubmit">Submit Changes</button>
-</form>
-</div>
+    <div class="col-md-1"></div>
+    <div class="col-md-11">
+        <form method="POST" action="editfarmaction">
+            <label name="farmnamelabel">Farm Name:</label>&nbsp
+            <input type="text" name="farmname"></input>
+            <br>
+            <label name="farmlocationlabel">Farm Longitude and Latitude</label>&nbsp
+            <input type="number" name="farmlongitude"></input>&nbsp
+            <input type="number" name="farmlatitude"></input>
+            <br>
+            <button type="submit" name="farmeditsubmit">Submit Changes</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>
