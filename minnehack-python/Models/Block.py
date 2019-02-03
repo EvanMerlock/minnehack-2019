@@ -39,3 +39,6 @@ class BlockTemplate:
 
     def get_name(self):
         return self.__name
+
+    def get_field(self):
+        return self.__field
