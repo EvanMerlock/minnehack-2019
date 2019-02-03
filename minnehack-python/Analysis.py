@@ -12,9 +12,11 @@ class Analysis:
     def est_cost(self):
         pass
 
-    def get_yield_per_acre(self, crop_string):
+    def get_yield_per_acre(self, crop_string, file_string):
         #finds the yeld per acre of the crop in input, and returns it
-
+        #1 ton = 2000 lb. File is in LBS. File is named YieldperTon.csv and is located in the Data folder
+        #p much search through file_string (string version of YieldperTon for the lbs per acre for the crop specified in crop_string, convert it to tons, and then return it.
+        #make sure to include what happens when the crop is not in the file_string
 
 
     def get_cost_per_ton(self, crop_string, search_string):
