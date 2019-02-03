@@ -12,7 +12,7 @@ BEGIN
         VALUES(farm_id, now(), now());
     RETURN farm_id;
 END;
-$$ LANGUAGE pgplsql;
+$$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION orange_produce.insert_field(int, int, text) RETURNS int AS $$
 DECLARE
@@ -28,7 +28,7 @@ BEGIN
         VALUES(field_id, now(), now());
     RETURN farm_id;
 END;
-$$ LANGUAGE pgplsql;
+$$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION orange_produce.insert_block(int, int, text, int) RETURNS int AS $$
 DECLARE
@@ -45,7 +45,7 @@ BEGIN
         VALUES(DEFAULT, now(), now());
     RETURN block_id;
 END;
-$$ LANGUAGE pgplsql;
+$$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION orange_produce.insert_crop(int, text, money, integer, money, text DEFAULT NULL) RETURNS int AS $$
 DECLARE
@@ -64,7 +64,7 @@ BEGIN
         VALUES(crop_id, now(), now());
     RETURN crop_id;
 END;
-$$ LANGUAGE pgplsql;
+$$ LANGUAGE plpgsql;
 
 CREATE OR REPLACE FUNCTION orange_produce.insert_crop_swap_event(int, int, int, timestamptz) RETURNS int AS $$
 DECLARE
@@ -81,4 +81,4 @@ BEGIN
         VALUES(crop_swap_id, now(), now());
     RETURN crop_swap_id;
 END;
-$$ LANGUAGE pgplsql;
+$$ LANGUAGE plpgsql;
