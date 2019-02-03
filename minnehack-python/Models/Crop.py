@@ -1,4 +1,4 @@
-class Crop :
+class Crop:
 
     def __init__(self, name, marketValuePerBlock, YieldTime, costPerBlock):
 
