@@ -20,7 +20,7 @@
             <select name="farmselect" size="15" multiple>
                 <!--OPTIONS FOR FARM POPULATE HERE-->
                 {% for item in farms %}
-                    <option name="farm_{{ item.name }}">{{ item.name }}</option>
+                    <option name="farm_{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
             <br>
@@ -38,7 +38,7 @@
             <select name="fieldselect" size="15" multiple>
                 <!--OPTIONS FOR FIELD POPULATE HERE-->
                 {% for item in fields %}
-                    <option name="field_{{ item.name }}">{{ item.name }}</option>
+                    <option name="field_{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
             <br>
@@ -55,7 +55,7 @@
             <select name="blockselect" size="15" multiple>
                 <!--OPTIONS FOR BLOCK POPULATE HERE-->
                 {% for item in blocks %}
-                    <option name="block_{{ item.name }}">{{ item.name }}</option>
+                    <option name="block_{{ item.id }}">{{ item.name }}</option>
                 {% endfor %}
             </select>
             <br>
