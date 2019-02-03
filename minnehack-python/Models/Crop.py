@@ -1,14 +1,18 @@
-class Crop :
+class Crop:
 
-    def __init__(self, name, marketValuePerBlock, YieldTime, costPerBlock):
+    def __init__(self, name, countryName, marketValuePerBlock, YieldTime, costPerBlock):
 
         self.__name = name
+        self.__countryName = countryName
         self.__marketValuePerBlock = marketValuePerBlock
         self.__YieldTime = YieldTime
         self.__costPerBlock = costPerBlock
 
     def getName(self):
         return self.__name
+
+    def getCountryName(self):
+        return self.__countryName
 
     def getMarketValuePerBlock(self):
         return self.__marketValuePerBlock
